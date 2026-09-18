@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.appletothepen.ui.Card?>
+<?import com.appletothepen.ui.PageHeader?>
+<?import com.appletothepen.ui.StatCard?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.appletothepen.controllers.AnalyticsController"
+      styleClass="view-root">
+    <PageHeader title="Analytics and Performance Dashboard"/>
+    <VBox spacing="20" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <HBox spacing="20">
+            <StatCard title="Safety Score" value="98.2 / 100" caption="Gauge: High Compliance" HBox.hgrow="ALWAYS"/>
+            <StatCard title="Total Simulations" value="205 Runs" caption="+12 vs Last Month" HBox.hgrow="ALWAYS"/>
+            <StatCard title="Average Travel Time" value="42.5 Min" caption="-2.4 Min Optimization" HBox.hgrow="ALWAYS"/>
+            <StatCard title="Collision Events" value="0 Occurrences" caption="100% Zero-Crash" HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <HBox spacing="20">
+            <Card title="Driving Performance Metrics (Speed, G-Force)" HBox.hgrow="ALWAYS">
+                <BarChart fx:id="performanceChart" animated="false" prefHeight="250">
+                    <xAxis>
+                        <CategoryAxis/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis/>
+                    </yAxis>
+                </BarChart>
+            </Card>
+            <Card title="Collision &amp; Near-Miss Stats by Obstacle Type" HBox.hgrow="ALWAYS">
+                <PieChart fx:id="obstacleChart" animated="false" prefHeight="250"/>
+            </Card>
+        </HBox>
+
+        <HBox spacing="20">
+            <Card title="Route Efficiency Analysis" HBox.hgrow="ALWAYS">
+                <LineChart fx:id="efficiencyChart" animated="false" legendVisible="false" prefHeight="200">
+                    <xAxis>
+                        <NumberAxis label="Ride #" autoRanging="false" lowerBound="1" upperBound="8" tickUnit="1"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Efficiency"/>
+                    </yAxis>
+                </LineChart>
+            </Card>
+            <Card title="Travel Time Summary Table" HBox.hgrow="ALWAYS">
+                <Label text="SIM-129 (Highway Run) - 45 Min - 32 Mi" styleClass="summary-row"/>
+                <Label text="SIM-128 (Urban Downtown) - 18 Min - 4.5 Mi" styleClass="summary-row"/>
+                <Label text="SIM-127 (Rain Fog Test) - 52 Min - 28 Mi" styleClass="summary-row"/>
+            </Card>
+        </HBox>
+
+        <Card title="Quick Telemetry Replay Logs">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Run 205 Complete Logs - Generated 2026-03-29" styleClass="hint-text"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Launch Visual Replay" styleClass="secondary-button" onAction="#handleLaunchReplay"/>
+            </HBox>
+        </Card>
+    </VBox>
+</VBox>

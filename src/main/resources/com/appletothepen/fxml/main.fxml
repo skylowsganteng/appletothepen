@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.appletothepen.controllers.MainController"
+            styleClass="root-layout">
+    <left>
+        <VBox styleClass="sidebar" prefWidth="190" minWidth="190">
+            <padding>
+                <Insets top="20" right="14" bottom="20" left="14"/>
+            </padding>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="4" right="0" bottom="24" left="4"/>
+                </padding>
+                <Label text="DR" styleClass="brand-logo"/>
+                <Label text="Simulation" styleClass="brand-name"/>
+            </HBox>
+            <Label fx:id="navDashboard" text="Dashboard" styleClass="nav-item"
+                   maxWidth="Infinity" onMouseClicked="#showDashboard"/>
+            <Label fx:id="navNewSimulation" text="New Simulation" styleClass="nav-item"
+                   maxWidth="Infinity" onMouseClicked="#showNewSimulation"/>
+            <Label fx:id="navHistory" text="Simulation History" styleClass="nav-item"
+                   maxWidth="Infinity" onMouseClicked="#showHistory"/>
+            <Label fx:id="navAnalytics" text="Analytics" styleClass="nav-item"
+                   maxWidth="Infinity" onMouseClicked="#showAnalytics"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label fx:id="navProfile" text="Profile" styleClass="nav-item"
+                   maxWidth="Infinity" onMouseClicked="#showProfile"/>
+            <Label fx:id="navSettings" text="Settings" styleClass="nav-item"
+                   maxWidth="Infinity" onMouseClicked="#showSettings"/>
+        </VBox>
+    </left>
+    <center>
+        <StackPane fx:id="contentArea"/>
+    </center>
+</BorderPane>

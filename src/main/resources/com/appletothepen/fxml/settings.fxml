@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.appletothepen.ui.Card?>
+<?import com.appletothepen.ui.PageHeader?>
+<?import com.appletothepen.ui.ToggleSwitch?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.appletothepen.controllers.SettingsController"
+      styleClass="view-root">
+    <PageHeader title="Settings"/>
+    <VBox>
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <Card title="Application Preferences">
+            <HBox alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="6" bottom="6"/>
+                </padding>
+                <Label text="Enable Desktop Notifications" styleClass="field-label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <ToggleSwitch selected="true"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="6" bottom="6"/>
+                </padding>
+                <Label text="Dark Mode" styleClass="field-label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <ToggleSwitch selected="false"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="6" bottom="6"/>
+                </padding>
+                <Label text="Auto-Save Simulation Logs" styleClass="field-label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <ToggleSwitch selected="true"/>
+            </HBox>
+        </Card>
+    </VBox>
+</VBox>

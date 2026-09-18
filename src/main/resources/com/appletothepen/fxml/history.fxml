@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.appletothepen.ui.Card?>
+<?import com.appletothepen.ui.PageHeader?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.appletothepen.controllers.SimulationHistoryController"
+      styleClass="view-root">
+    <PageHeader title="Simulation History and Interactive Replay Console"/>
+    <VBox VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <Card VBox.vgrow="ALWAYS">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <padding>
+                    <Insets bottom="14"/>
+                </padding>
+                <Label text="FILTERS:" styleClass="filters-label"/>
+                <ComboBox fx:id="dateRangeCombo" styleClass="filter-chip"/>
+                <ComboBox fx:id="statusCombo" styleClass="filter-chip"/>
+                <ComboBox fx:id="routeCombo" styleClass="filter-chip"/>
+                <Button text="Clear Filters" styleClass="secondary-button-small" onAction="#handleClearFilters"/>
+            </HBox>
+            <HBox styleClass="history-column-header">
+                <Label text="Sim Name" prefWidth="90" styleClass="history-header-cell"/>
+                <Label text="Date" prefWidth="100" styleClass="history-header-cell"/>
+                <Label text="Planned Route" prefWidth="210" styleClass="history-header-cell"/>
+                <Label text="Duration" prefWidth="80" styleClass="history-header-cell"/>
+                <Label text="Safety Score" prefWidth="80" styleClass="history-header-cell"/>
+                <Label text="Status" prefWidth="110" styleClass="history-header-cell"/>
+            </HBox>
+            <VBox fx:id="rowsContainer" spacing="10">
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+            </VBox>
+        </Card>
+    </VBox>
+</VBox>

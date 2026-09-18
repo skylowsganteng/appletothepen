@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.appletothepen.ui.Card?>
+<?import com.appletothepen.ui.PageHeader?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.appletothepen.controllers.DashboardController"
+      styleClass="view-root">
+    <PageHeader fx:id="header"/>
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <VBox spacing="20" prefWidth="340">
+            <Card>
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Label text="AVATAR" styleClass="avatar-placeholder"/>
+                    <VBox spacing="2">
+                        <Label fx:id="nameLabel" styleClass="profile-name"/>
+                        <Label fx:id="emailLabel" styleClass="profile-email"/>
+                    </VBox>
+                </HBox>
+                <Button text="Edit Profile Details" styleClass="secondary-button" maxWidth="Infinity">
+                    <VBox.margin>
+                        <Insets top="12"/>
+                    </VBox.margin>
+                </Button>
+            </Card>
+            <Card title="Saved Progress Indicator">
+                <Label text="CURRENT TASK: ROUTE SETUP #12 (85% SAVED)" styleClass="progress-caption"/>
+                <ProgressBar progress="0.85" maxWidth="Infinity" styleClass="dashboard-progress"/>
+            </Card>
+        </VBox>
+        <VBox spacing="20" HBox.hgrow="ALWAYS">
+            <Card title="Recent Simulations List">
+                <VBox fx:id="recentList" spacing="10"/>
+                <Button text="View Full History" styleClass="secondary-button" onAction="#handleViewFullHistory">
+                    <VBox.margin>
+                        <Insets top="12"/>
+                    </VBox.margin>
+                </Button>
+            </Card>
+        </VBox>
+    </HBox>
+    <VBox>
+        <padding>
+            <Insets top="0" right="20" bottom="20" left="20"/>
+        </padding>
+        <Label text="&quot;Never gonna give you up, Never gonna let you down&quot; - Rick Astley"
+               styleClass="quote-banner" maxWidth="Infinity"/>
+    </VBox>
+</VBox>

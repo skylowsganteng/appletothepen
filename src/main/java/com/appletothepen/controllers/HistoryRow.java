@@ -1,4 +1,4 @@
-package com.appletothepen.views;
+package com.appletothepen.controllers;
 
 import com.appletothepen.model.SimulationRecord;
 import com.appletothepen.ui.PlaceholderBox;

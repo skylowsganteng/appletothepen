@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.appletothepen.ui.Card?>
+<?import com.appletothepen.ui.PageHeader?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.appletothepen.controllers.ProfileController"
+      styleClass="view-root">
+    <PageHeader title="Profile"/>
+    <VBox>
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <Card title="Account Details">
+            <HBox spacing="16" alignment="CENTER_LEFT">
+                <Label text="AVATAR" styleClass="avatar-placeholder"/>
+                <VBox spacing="10">
+                    <VBox spacing="4">
+                        <Label text="Full Name" styleClass="field-label"/>
+                        <TextField fx:id="nameField" prefWidth="280"/>
+                    </VBox>
+                    <VBox spacing="4">
+                        <Label text="Email" styleClass="field-label"/>
+                        <TextField fx:id="emailField" prefWidth="280"/>
+                    </VBox>
+                </VBox>
+            </HBox>
+        </Card>
+    </VBox>
+</VBox>

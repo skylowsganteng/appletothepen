@@ -1,21 +1,24 @@
 package com.appletothepen.ui;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Line;
 
-/** Grey box with a diagonal cross, used everywhere the design shows an un-built map/chart/canvas area. */
+/**
+ * Grey box with a diagonal cross, used everywhere the design shows an un-built map/chart/canvas area.
+ * Usable directly as an FXML tag, e.g. {@code <PlaceholderBox caption="Route Preview Map" prefHeight="220"/>}.
+ */
 public class PlaceholderBox extends StackPane {
 
-    public PlaceholderBox(String caption) {
-        this(caption, 220);
-    }
+    private final StringProperty caption = new SimpleStringProperty("");
+    private final Label label = new Label();
 
-    public PlaceholderBox(String caption, double prefHeight) {
+    public PlaceholderBox() {
         getStyleClass().add("placeholder-box");
-        setPrefHeight(prefHeight);
 
         Pane crossPane = new Pane();
         Line diagonal1 = new Line();
@@ -37,10 +40,24 @@ public class PlaceholderBox extends StackPane {
         crossPane.prefWidthProperty().bind(widthProperty());
         crossPane.prefHeightProperty().bind(heightProperty());
 
-        Label label = new Label(caption.toUpperCase());
         label.getStyleClass().add("placeholder-caption");
         StackPane.setAlignment(label, Pos.CENTER);
+        caption.addListener((obs, oldVal, newVal) -> label.setText(newVal == null ? "" : newVal.toUpperCase()));
 
         getChildren().addAll(crossPane, label);
     }
+
+    public PlaceholderBox(String captionText) {
+        this();
+        setCaption(captionText);
+    }
+
+    public PlaceholderBox(String captionText, double prefHeight) {
+        this(captionText);
+        setPrefHeight(prefHeight);
+    }
+
+    public String getCaption() { return caption.get(); }
+    public void setCaption(String value) { caption.set(value); }
+    public StringProperty captionProperty() { return caption; }
 }
